@@ -1,6 +1,6 @@
 # DMSearch
 
-Vencord plugin that adds global cross DM and message search to the desktop Quick searcher.
+Vencord plugin that adds global cross DM and message search to the desktop Quick Switcher.
 
 See results from every DM and group.
 

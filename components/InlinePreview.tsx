@@ -67,7 +67,7 @@ export function InlinePreview({ query, hits, total, limit, channels, on_show_all
                 <span className="vc-dms-section-title">Messages</span>
                 <span className="vc-dms-section-count">{total}</span>
             </div>
-            <div className="vc-dms-list vc-dms-list--inline">
+            <div className="vc-dms-list vc-dms-list-inline">
                 {shown.map(hit => (
                     <HitRow
                         key={hit.id}

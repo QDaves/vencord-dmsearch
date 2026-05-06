@@ -119,8 +119,8 @@ function FilesBody({ hit, query }: { hit: MessageHit; query: string; }) {
         <div className="vc-dms-files">
             {files.map(f => (
                 <div key={f.id} className="vc-dms-file">
-                    <span className="vc-dms-file__name">{f.filename ?? "file"}</span>
-                    <span className="vc-dms-file__meta">{`${f.content_type ?? "file"} · ${fmt_bytes(f.size ?? 0)}`}</span>
+                    <span className="vc-dms-file-name">{f.filename ?? "file"}</span>
+                    <span className="vc-dms-file-meta">{`${f.content_type ?? "file"} · ${fmt_bytes(f.size ?? 0)}`}</span>
                 </div>
             ))}
             {hit.content && <TextBody content={hit.content} query={query} />}

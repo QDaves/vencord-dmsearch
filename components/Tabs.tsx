@@ -43,7 +43,7 @@ export function Tabs({ query, totals, loading, active, on_pick }: Props) {
                     <button
                         key={tab}
                         type="button"
-                        className={"vc-dms-tab" + (is_active ? " vc-dms-tab--active" : "")}
+                        className={"vc-dms-tab" + (is_active ? " vc-dms-tab-active" : "")}
                         onClick={e => {
                             e.preventDefault();
                             e.stopPropagation();
@@ -51,7 +51,7 @@ export function Tabs({ query, totals, loading, active, on_pick }: Props) {
                         }}
                     >
                         <span>{LABELS[tab]}</span>
-                        {tab !== "all" && <span className="vc-dms-tab__count">{count}</span>}
+                        {tab !== "all" && <span className="vc-dms-tab-count">{count}</span>}
                     </button>
                 );
             })}

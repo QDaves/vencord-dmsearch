@@ -7,12 +7,11 @@
 import { useEffect, useRef, useState } from "@webpack/common";
 
 import { load_page } from "../api/search";
-import { SCROLL_GAP_PX } from "../constants";
+import { SCROLL_GAP_PX, SCROLL_SAVE_MS } from "../constants";
 import { get_scroll, save_scroll } from "../state";
 import { ChannelMeta, MessageHit, SearchCursor, SearchTab } from "../types";
+import { Dots } from "./Dots";
 import { HitRow } from "./HitRow";
-
-const SCROLL_SAVE_MS = 150;
 
 const EMPTY_TEXT: Record<SearchTab, string> = {
     messages: "No matching messages.",
@@ -116,13 +115,5 @@ export function TabContent({ tab, query, hits, cursor, loading, channels, on_mor
                 : !cursor && hits.length > 0 && <div className="vc-dms-end">End of results</div>
             }
         </div>
-    );
-}
-
-function Dots() {
-    return (
-        <span className="vc-dms-loading-dots">
-            <span /><span /><span />
-        </span>
     );
 }

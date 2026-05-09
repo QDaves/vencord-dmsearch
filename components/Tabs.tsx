@@ -6,6 +6,8 @@
 
 import { SearchTab, TabKey } from "../types";
 
+import { Dots } from "./Dots";
+
 const ORDER: TabKey[] = ["all", "messages", "media", "pins", "links", "files"];
 
 const LABELS: Record<TabKey, string> = {
@@ -55,11 +57,7 @@ export function Tabs({ query, totals, loading, active, on_pick }: Props) {
                     </button>
                 );
             })}
-            {loading && (
-                <span className="vc-dms-loading-dots">
-                    <span /><span /><span />
-                </span>
-            )}
+            {loading && <Dots />}
         </div>
     );
 }

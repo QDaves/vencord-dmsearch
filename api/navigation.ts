@@ -7,14 +7,12 @@
 import { findByCode } from "@webpack";
 import { ChannelActionCreators, ChannelStore, FluxDispatcher, NavigationRouter } from "@webpack/common";
 
+import { TYPE_DM, TYPE_GROUP_DM } from "../constants";
 import { ChannelMeta } from "../types";
 
 interface PrivateChannel {
     fromServer(api_data: unknown): unknown;
 }
-
-const DM = 1;
-const GROUP_DM = 3;
 
 let pc_cache: PrivateChannel | null = null;
 
@@ -33,7 +31,7 @@ export async function jump_to(channel_id: string, message_id: string, guild_id?:
         try {
             const data = await ChannelActionCreators.fetchChannel(channel_id) as { type?: number; };
             if (data) {
-                if (data.type === DM || data.type === GROUP_DM) {
+                if (data.type === TYPE_DM || data.type === TYPE_GROUP_DM) {
                     const pc = private_channel();
                     if (pc?.fromServer) {
                         FluxDispatcher.dispatch({ type: "CHANNEL_CREATE", channel: pc.fromServer(data) });

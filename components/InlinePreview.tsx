@@ -6,12 +6,12 @@
 
 import { ReactDOM, useEffect, useState } from "@webpack/common";
 
+import { SCROLL_SAVE_MS } from "../constants";
 import { get_scroll, save_scroll } from "../state";
 import { ChannelMeta, MessageHit } from "../types";
 import { HitRow } from "./HitRow";
 
 const SCROLLER_SELECTOR = "[class^='quickswitcher_'] [class^='resultsArea_'] [class^='scroller_']";
-const SCROLL_DEBOUNCE_MS = 150;
 
 interface Props {
     query: string;
@@ -49,7 +49,7 @@ export function InlinePreview({ query, hits, total, limit, channels, on_show_all
         let timer: number | null = null;
         const on_scroll = () => {
             if (timer != null) clearTimeout(timer);
-            timer = window.setTimeout(() => save_scroll("all", target.scrollTop), SCROLL_DEBOUNCE_MS);
+            timer = window.setTimeout(() => save_scroll("all", target.scrollTop), SCROLL_SAVE_MS);
         };
         target.addEventListener("scroll", on_scroll, { passive: true });
         return () => {

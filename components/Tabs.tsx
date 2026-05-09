@@ -5,8 +5,7 @@
  */
 
 import { SearchTab, TabKey } from "../types";
-
-import { Dots } from "./Dots";
+import { Dots } from "./TabContent";
 
 const ORDER: TabKey[] = ["all", "messages", "media", "pins", "links", "files"];
 
